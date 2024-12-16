@@ -1,0 +1,65 @@
+@use "variables";
+@use "mixins";
+@use "fonts";
+@use "title";
+@use "header";
+@use "menu";
+@use "section-1";
+@use "text";
+@use "button";
+@use "section-2";
+@use "section-3";
+@use "section-4";
+@use "section-5";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+[class*="container"] {
+  display: grid;
+  padding: 0 20px;
+  margin: 0 auto;
+  @media (min-width: 744px) {
+    padding: 0 72px;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 24px;
+  }
+  @media (min-width: 1260px) {
+    padding: 0 120px;
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.page {
+  overflow: hidden;
+}
+
+.animate-on-scroll-left {
+  opacity: 0;
+  transform: translate(-50%);
+  transition: opacity 1s, transform 3s;
+}
+
+.animate-on-scroll-right {
+  opacity: 0;
+  transform: translate(10%);
+  transition: opacity 3s, transform 3s;
+}
+
+.animate {
+  opacity: 1;
+  transform: translate(0);
+}
